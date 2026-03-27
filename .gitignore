@@ -1,0 +1,19 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+
+# Build artifacts
+build/
+
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+android/app/debug/
+android/app/profile/
+android/app/release/
+ios/Flutter/.last_build_id
