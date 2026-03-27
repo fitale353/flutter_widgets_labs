@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const RegistrationApp());
+
+class RegistrationApp extends StatelessWidget {
+  const RegistrationApp({super.key});
+  @override
+  Widget build(BuildContext context) => MaterialApp(home: RegistrationScreen());
+}
+
+class RegistrationScreen extends StatefulWidget {
+  @override
+  _RegistrationScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<RegistrationScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Register')),
+      body: Form(
+        key: _formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Username'),
+                validator: (value) => value!.isEmpty ? 'Enter username' : null,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    showDialog(context: context, builder: (ctx) => const AlertDialog(content: Text('Success!')));
+                  }
+                },
+                child: const Text('Submit'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
